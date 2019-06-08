@@ -9,7 +9,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
 #RUN wget http://release.larsjung.de/h5ai/h5ai-0.24.1.zip
 #RUN unzip h5ai-0.24.1.zip -d /usr/share/h5ai
 COPY h5ai-0.29.2.zip .
-#COPY default /etc/nginx/sites-available/default
 RUN unzip h5ai-0.29.2.zip -d /usr/share/h5ai
 #RUN chmod -R 0777 /usr/share/h5ai/
 # patch h5ai because we want to deploy it ouside of the document root and use /var/www as root for browsing
@@ -21,9 +20,11 @@ RUN unzip h5ai-0.29.2.zip -d /usr/share/h5ai
 #RUN sed -i "s#\$this->set('ROOT_PATH', Util::normalize_path(dirname(\$this->get('H5AI_PATH')), false))#\$this->set('ROOT_PATH', '/var/www')#g" /usr/share/h5ai/_h5ai/private/php/core/class-setup.php
 # add h5ai as the only nginx site
 
-ADD h5ai.nginx.conf /etc/nginx/sites-available/h5ai
-RUN ln -s /etc/nginx/sites-available/h5ai /etc/nginx/sites-enabled/h5ai
-RUN rm /etc/nginx/sites-enabled/default
+#ADD h5ai.nginx.conf /etc/nginx/sites-available/h5ai
+#RUN ln -s /etc/nginx/sites-available/h5ai /etc/nginx/sites-enabled/h5ai
+#RUN rm /etc/nginx/sites-enabled/default
+COPY default /etc/nginx/sites-available/default
+
 RUN mkdir -p /run/php
 WORKDIR /var/www
 
