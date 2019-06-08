@@ -3,6 +3,7 @@ MAINTAINER xiaofd <jun@jun.ac.cn>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
   nginx php php-fpm supervisor \
+  php-gd php-exif ffmpeg imagemagick \
   wget unzip patch
 
 # install h5ai and patch configuration
