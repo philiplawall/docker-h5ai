@@ -1,8 +1,8 @@
-FROM ubuntu:14.04
-MAINTAINER Christian Lück <christian@lueck.tv>
+FROM ubuntu:16.04
+MAINTAINER xiaofd <jun@jun.ac.cn>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
-  nginx php5-fpm supervisor \
+  nginx php supervisor \
   wget unzip patch
 
 # install h5ai and patch configuration
