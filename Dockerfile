@@ -24,7 +24,7 @@ RUN unzip h5ai-0.29.2.zip -d /usr/share/h5ai
 ADD h5ai.nginx.conf /etc/nginx/sites-available/h5ai
 RUN ln -s /etc/nginx/sites-available/h5ai /etc/nginx/sites-enabled/h5ai
 RUN rm /etc/nginx/sites-enabled/default
-
+RUN mkdir -p /run/php
 WORKDIR /var/www
 
 # add dummy files in case the container is not run with a volume mounted to /var/www
