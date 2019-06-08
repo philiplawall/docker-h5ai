@@ -13,7 +13,7 @@ This docker image is available as an [automated build on Docker Hub](https://ind
 The recommended way to run this container looks like this:
 
 ```bash
-$ docker run -it --rm -p 80:80 -v `pwd`:/var/www clue/h5ai
+$ docker run -it --rm -p 80:80 -v `pwd`:/var/www xiaofd/h5ai
 ```
 
 You can now point your webbrowser to this URL:
@@ -28,4 +28,7 @@ This is a rather common setup following docker's conventions:
 * `--rm` will run a temporary session that will make sure to remove the container on exit
 * `-v {AnyDirectory}:/var/www` will mount the given directory as the base directory for the browsable directory index
 * `-p {OutsidePort}:80` will bind the webserver to the given outside port
-* `clue/h5ai` the name of this docker image
+* `xiaofd/h5ai` the name of this docker image
+
+
+> Fork from clue
