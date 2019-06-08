@@ -17,7 +17,7 @@ RUN unzip h5ai-0.29.2.zip -d /usr/share/h5ai
 
 #ADD options.json.patch options.json.patch
 #RUN patch -p1 -u -d /usr/share/h5ai/_h5ai/conf/ -i /options.json.patch && rm options.json.patch
-#RUN sed -i "s#\$this->set('ROOT_PATH', Util::normalize_path(dirname(\$this->get('H5AI_PATH')), false))#\$this->set('ROOT_PATH', '/var/www')#g" /usr/share/h5ai/_h5ai/private/php/core/class-setup.php
+RUN sed -i "s#\$this->set('ROOT_PATH', Util::normalize_path(dirname(\$this->get('H5AI_PATH')), false))#\$this->set('ROOT_PATH', '/var/www')#g" /usr/share/h5ai/_h5ai/private/php/core/class-setup.php
 # add h5ai as the only nginx site
 
 #ADD h5ai.nginx.conf /etc/nginx/sites-available/h5ai
