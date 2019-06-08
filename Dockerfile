@@ -11,7 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
 COPY h5ai-0.29.2.zip .
 #COPY default /etc/nginx/sites-available/default
 RUN unzip h5ai-0.29.2.zip -d /usr/share/h5ai
-RUN chown -R www:www /usr/share/h5ai/
+RUN chmod -R 0777 /usr/share/h5ai/
 # patch h5ai because we want to deploy it ouside of the document root and use /var/www as root for browsing
 #ADD App.php.patch App.php.patch
 #RUN patch -p1 -u -d /usr/share/h5ai/_h5ai/server/php/inc/ -i /App.php.patch && rm App.php.patch
