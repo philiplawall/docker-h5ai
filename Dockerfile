@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 MAINTAINER xiaofd <jun@jun.ac.cn>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y \
